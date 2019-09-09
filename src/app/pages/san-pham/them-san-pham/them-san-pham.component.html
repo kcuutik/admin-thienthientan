@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header>Thêm sản phẩm</nb-card-header>
+      <nb-card-body>
+        <form class="form-inline">
+            <div style="padding: 5px"></div>
+            <input type="text" nbInput fullWidth placeholder="Tên sản phẩm" [(ngModel)]="productDetails.name" [ngModelOptions]="{standalone: true}">
+            <div style="padding: 5px"></div>
+            <input type="text" nbInput fullWidth placeholder="Giá sản phẩm"  [(ngModel)]="productDetails.price" [ngModelOptions]="{standalone: true}">
+            <div style="padding: 5px"></div>
+            <input type="text" nbInput fullWidth placeholder="Số lượng"  [(ngModel)]="productDetails.quantily" [ngModelOptions]="{standalone: true}">
+            <div style="padding: 5px"></div>
+            <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Ghi chú"></textarea>
+        </form>
+      </nb-card-body>
+    <nb-card-footer>
+      <button type="submit" nbButton status="primary"  (click)="addProduct()">Thêm</button>
+    </nb-card-footer>
+    </nb-card>
+    <form [formGroup]="countryForm">
+      <select formControlName="countryControl">
+        <option [value]="country" *ngFor="let country of countries"> {{country}}</option>
+      </select>
+     </form>
+  </div>
+</div>
+
+<div>
+  <nb-card>
+    <nb-card-header>
+      Smart Table
+    </nb-card-header>
+  
+    <nb-card-body>
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  
+</div>
